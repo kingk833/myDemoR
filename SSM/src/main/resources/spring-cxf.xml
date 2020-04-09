@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans      
+                        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd      
+                        http://www.springframework.org/schema/context      
+                        http://www.springframework.org/schema/context/spring-context-3.1.xsd
+                        http://cxf.apache.org/jaxws 
+                        http://cxf.apache.org/schemas/jaxws.xsd      
+                        http://www.springframework.org/schema/mvc      
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+	<!-- <bean id="userServiceImpl" class="com.licz.ssm.service.impl.UserService" /> -->
+	<jaxws:server address="/user" serviceClass="com.licz.ssm.service.IUserService">
+		<jaxws:serviceBean>
+			<ref bean="userService" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+	<!-- <bean id="memberServiceImpl" class="com.licz.ssm.service.impl.MemberService" />-->
+	<jaxws:server address="/member" serviceClass="com.licz.ssm.service.IMemberService">
+		<jaxws:serviceBean>
+			<ref bean="memberService" />
+		</jaxws:serviceBean>
+	</jaxws:server> 
+</beans>
